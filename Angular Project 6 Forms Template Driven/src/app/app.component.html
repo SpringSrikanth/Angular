@@ -1,0 +1,174 @@
+<div class='container-fluid ' >
+     <div class="col-md-7" style="background-color:#cbf3cb;">
+          <form #frm="ngForm" class="form-horizontal" (ngSubmit)="addStudent(frm)">
+                    <div class="form-group row">
+                         <div class="col-md-9 col-md-offset-2">
+                              <h3 class="text-capitalize text-left ">Student Registration Form</h3>
+                         </div>
+                    </div>
+                    <div class="form-group  form-group-sm row">
+                         <label class="col-md-2 control-label" >First Name</label>
+                         <div class="col-md-9">
+                              <input type="text" 
+                              class="form-control input-lg input-sm" 
+                              placeholder="Enter First Name"
+                              name="firstName"
+                              ngModel
+                              #sfirstName="ngModel"
+                              pattern="[a-zA-Z]+"
+                              maxlength="50"
+                              minlength="2"
+                              required
+                              />
+                         </div>
+                    </div>
+                    <div *ngIf="sfirstName?.touched && sfirstName?.invalid" class="alert alert-danger">
+                         <div *ngIf="sfirstName.errors?.required">
+                              First Name required
+                         </div>
+                         <div *ngIf="sfirstName.errors?.pattern || sfirstName.errors?.minlength">
+                              First Name Invalid !
+                         </div>
+                    </div>
+                    <div class="form-group form-group-sm row">
+                         <label class="col-md-2 control-label">Second Name</label>
+                         <div class="col-md-9">
+                              <input type="text" 
+                               class="form-control input-lg input-sm"
+                               placeholder="Enter Second Name"
+                               name="secondName"
+                               pattern="[A-Za-z]+"
+                               ngModel
+                               #ssecondName="ngModel"
+                               maxlength="50"
+                              minlength="2"
+                               required
+                               />
+                         </div>
+                    </div>
+                    <div *ngIf="ssecondName?.touched && ssecondName?.invalid" class="alert alert-danger">
+                         <div *ngIf="ssecondName.errors?.required">
+                              Second Name required !
+                         </div>
+                         <div *ngIf="ssecondName.errors?.pattern || ssecondName.errors?.minlength">
+                              Second Name Invalid !
+                         </div>
+                    </div>
+                    <div class="form-group form-group-sm row">
+                         <label class="col-md-2 control-label">Mobile </label>
+                         <div class="col-md-9">
+                              <input type="text" 
+                              class="form-control input-lg input-sm" 
+                              placeholder="Enter Mobile"
+                              name="mobile"
+                              pattern="[0-9]+"
+                              ngModel
+                              #smobile="ngModel"
+                              minlength="10"
+                              maxlength="10"
+                              required
+                              />
+                         </div>
+                    </div>
+                    <div *ngIf="smobile?.touched && smobile?.invalid" class="alert alert-danger">
+                         <div *ngIf="smobile.errors?.required">
+                              Mobile required
+                         </div>
+                         <div *ngIf="smobile.errors?.pattern || smobile.errors?.minlength">
+                              Mobile Invalid !
+                         </div>
+                    </div>
+                    <div class="form-group form-group-sm row">
+                         <label class="col-md-2 control-label">Email </label>
+                         <div class="col-md-9">
+                              <input type="text" 
+                              class="form-control input-lg input-sm" 
+                              placeholder="Enter Email Address"
+                              name="emailAddress"
+                              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                              ngModel
+                              #semailAddress="ngModel"
+                              required
+                              />
+                         </div>
+                    </div>
+                    <div *ngIf="semailAddress?.touched && semailAddress?.invalid" class="alert alert-danger">
+                         <div *ngIf="semailAddress.errors?.required">
+                              Email required
+                         </div>
+                         <div *ngIf="semailAddress.errors?.pattern ">
+                              Email Invalid !
+                         </div>
+                    </div>
+                    <div class="form-group form-group-sm row">
+                         <label class="col-md-2 control-label">Username</label>
+                         <div class="col-md-9">
+                              <input type="text" 
+                              class="form-control input-lg input-sm" 
+                              placeholder="Enter  Username"
+                              name="userName"
+                              ngModel
+                              #suserName="ngModel"
+                              required
+                              />
+                         </div>
+                    </div>
+                    <div *ngIf="suserName?.touched && suserName?.invalid" class="alert alert-danger">
+                         <div *ngIf="suserName.errors?.required">
+                              Username required
+                         </div>
+                    </div>
+                    <div class="form-group form-group-sm row">
+                         <label class="col-md-2 control-label">Password</label>
+                         <div class="col-md-9">
+                              <input type="password" 
+                              class="form-control input-lg input-sm" 
+                              placeholder="Enter  Password"
+                              name="password"
+                              ngModel
+                              #spassword="ngModel"
+                              minlength="8"
+                              maxlength="16"
+                              required
+                              />
+                         </div>
+                    </div>
+                    <div *ngIf="spassword?.touched && spassword?.invalid" class="alert alert-danger">
+                         <div *ngIf="spassword.errors?.required">
+                              Password required
+                         </div>
+                         <div *ngIf="spassword.errors?.pattern || spassword.errors?.minlength">
+                              Password Invalid !
+                         </div>
+                    </div>
+                    <div class="form-group">
+                         <div class="col-md-offset-2 col-sm-10">
+                              <button type="submit" 
+                              class="btn btn-primary"
+                              [disabled] = "frm.invalid"
+                              >Submit</button>
+                              <button type="reset" class="btn btn-default">Reset</button>
+                              </div>
+                    </div>
+               </form>
+               <!-- <div>
+                    <h4>List of Students Registered!</h4>
+                    <h5 *ngIf="studentList.length==0">No Students</h5>
+                    <ul class="list-group">
+                         <li class="list-group-item" *ngFor="let student of studentList">{{student.firstName}}</li>
+                    </ul>
+               </div> -->
+     </div>
+     <div class="col-md-5" style="background-color:#ffffff;">
+          <img src="../assets/honey-yanibel-minaya-cruz-laORtJZaieU-unsplash.jpg" width="250" height="250" alt="..."  class="img-circle col-md-offset-3">
+          <div >
+               <h4>List of Students Registered!</h4>
+               <h5 *ngIf="studentList.length==0">No Students</h5>
+               <ul class="list-group" >
+                    <li class="list-group-item" *ngFor="let student of studentList">{{student.firstName}}</li>
+               </ul>
+          </div>
+     </div>
+</div>
+
+<!-- {{frm.value | json}} -->

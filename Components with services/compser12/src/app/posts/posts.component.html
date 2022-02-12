@@ -1,0 +1,7 @@
+<div class="container main_div">
+    <h3 style="margin: 7px;">Posts</h3>
+    <div style="border: 1px solid gray;border-radius: 8px;padding: 10px;margin: 10px;" *ngFor="let post of posts">
+        <span>Title :: {{post?.title}}</span> <br>
+        <span>Body :: {{post?.body}}</span> 
+    </div>
+</div>

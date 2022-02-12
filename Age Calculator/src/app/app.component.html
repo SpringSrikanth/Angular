@@ -1,0 +1,9 @@
+<div>
+  <h1> {{title | uppercase}} </h1>
+  <div>
+    <input type="date" [(ngModel)]="dateOfBirth" placeholder="Enter Date of Birth">
+    <button type="button" (click)="submitForm()">Submit</button>
+  </div>
+  <h1>Your Age :: {{personAge}}</h1><br>
+  <h1 style="color: red;font-weight: bold;font-family: 'Times New Roman';font-style: italic;">{{periodName}}</h1>
+</div>

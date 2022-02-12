@@ -1,0 +1,13 @@
+<div class="container" *ngIf="userInfo">
+    <div class="row">
+        <h5 [routerLink]='["/users"]'>back</h5>
+    </div>
+    <div class="row">
+       <h4 class="col-md-11">{{userInfo.first_name}}  {{userInfo.last_name}}</h4>
+       <p>{{userInfo.email}}</p>
+    </div>
+    <div></div>
+    <div class="row">
+        <img [src]="userInfo?.avatar">
+    </div>
+</div>

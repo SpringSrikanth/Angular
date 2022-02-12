@@ -1,0 +1,8 @@
+<div class="list-group" style="margin: 5px;">
+    <div class="list-group-item {{(user.id === selectedUser?.id)? 'active' :' ' }}"
+     *ngFor="let user of usersData" 
+      (click)="selectedItem(user)"
+     >
+        {{user.name}}
+    </div>
+</div>

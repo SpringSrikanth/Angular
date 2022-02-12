@@ -1,0 +1,16 @@
+<div>
+  <h1>{{title | uppercase}} </h1>
+  <br><br>
+  <h2>Users</h2>
+  <div *ngFor="let value of getValuesFromMap()">
+    <span (click)="selected(value.id)"> {{value.firstName}}  </span>
+  </div>
+
+  <div *ngIf="selectedUser" style="margin-top: 55px;">
+    <h2>Selected User Details</h2>
+    <h2>ID::: {{selectedUser?.id}}</h2>
+    <h2>First Name:::{{selectedUser?.firstName}}</h2>
+    <h2>Last Name:::{{selectedUser?.lastName}}</h2>
+    <h2>Std:::{{selectedUser?.std}}</h2>
+  </div>
+</div>

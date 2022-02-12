@@ -1,0 +1,8 @@
+<div>
+  <h1>{{title | uppercase}}</h1>
+  <input type="text" placeholder="Search By Name" (keyup)="searchByName()" [(ngModel)]="searchText">
+  <h3>Users</h3>
+  <div *ngFor="let user of _users">
+    {{user.name}}
+  </div>
+</div>

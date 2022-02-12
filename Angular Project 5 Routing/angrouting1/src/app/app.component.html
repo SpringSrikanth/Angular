@@ -1,0 +1,12 @@
+<!-- Example::: NavBar-->
+<div style="display: flex;">
+    <a style="margin:10px" [routerLink]='["/"]' routerLinkActive="active">Home</a>
+    <a style="margin:10px" [routerLink]='["/users"]' routerLinkActive="active">Users</a>
+    <a style="margin:10px" [routerLink]='["/employees"]' routerLinkActive="active">Employees</a>
+    <a style="margin:10px" [routerLink]='["/tutorials"]' routerLinkActive="active">Tutorials</a>
+    <a style="margin:10px" [routerLink]='["/comments"]' routerLinkActive="active">Comments</a>
+</div>
+<router-outlet>
+  <!--Router View -->
+</router-outlet> <!-- Using for where the data will display-->
+<!-- Example::: Footer-->

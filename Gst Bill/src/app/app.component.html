@@ -1,0 +1,14 @@
+<div>
+  <h1>{{title | uppercase}} </h1>
+  <div>
+    Enter Total Amount  <input type="text" [(ngModel)]="totalAmount" placeholder="Enter total amount" (keyup)="calculateGstAmount()"> <br/><br/>
+    Enter GST % <input type="text" [(ngModel)]="gstPercent" placeholder="Enter GST Percentage" (keyup)="calculateGstAmount()">
+  </div>
+  <div *ngIf="totalAmount && gstPercent">
+    <br>
+    Amount :: {{totalAmount}} <br>
+    GST {{gstPercent}}% <br>
+    GST Amount :: {{gstAmount}} <br>
+    Overal you need to pay <strong>{{this.netAmount | currency:'INR':'symbol-narrow' }} </strong><br>
+  </div>
+</div>

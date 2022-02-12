@@ -1,0 +1,196 @@
+<div class="container jumbotron">
+  <h3 class="text text-center">Employee Registration</h3>
+  <form class="form-horizontal" novalidate [formGroup]="form" (ngSubmit)="addEmployee(form)"> 
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">First Name</label>
+      <div  class="col-md-10">
+        <input type="text" 
+        class="form-control input-sm"
+         placeholder="First Name"
+         formControlName="firstName"
+         >
+      </div>
+    </div>
+    <div class="form-group" *ngIf="form.get('firstName').hasError('required') && form.get('firstName').touched">
+      <h5  class="alert alert-danger">
+          First name required!
+      </h5>
+    </div>
+    <div class="form-group" *ngIf="form.get('firstName').hasError('pattern') && form.get('firstName').touched">
+      <h5  class="alert alert-danger">
+          Invalid firstName
+      </h5>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">Second Name</label>
+      <div  class="col-md-10">
+        <input type="text" 
+        class="form-control input-sm"
+         placeholder="Second Name"
+         formControlName="secondName"
+         >
+      </div>
+      
+    </div>
+    <div class="form-group" *ngIf="form.get('secondName').hasError('required') && form.get('secondName').touched">
+      <h5  class="alert alert-danger">
+          Second name required!
+      </h5>
+    </div>
+    <div class="form-group" *ngIf="form.get('secondName').hasError('pattern') && form.get('secondName').touched">
+      <h5  class="alert alert-danger">
+          Invalid Second name
+      </h5>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">User Name</label>
+      <div  class="col-md-10">
+        <input type="text" 
+        class="form-control input-sm" 
+        placeholder="User Name"
+        formControlName="userName"
+        >
+      </div>
+    </div>
+    <div class="form-group" *ngIf="form.get('userName').hasError('required') && form.get('userName').touched">
+      <h5  class="alert alert-danger">
+          User name required!
+      </h5>
+    </div>
+    <div class="form-group" *ngIf="form.get('userName').hasError('maxLength') && form.get('userName').touched">
+      <h5  class="alert alert-danger">
+          User name required!
+      </h5>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">Company Name</label>
+      <div  class="col-md-10">
+        <input type="text" 
+        class="form-control input-sm"
+         placeholder="Company Name"
+         formControlName="companyName"
+         >
+      </div>
+    </div>
+    <div class="form-group" *ngIf="form.get('companyName').hasError('required') && form.get('companyName').touched">
+      <h5  class="alert alert-danger">
+          Company name required!
+      </h5>
+    </div>
+    
+    <div class="form-group" *ngIf="form.get('companyName').hasError('pattern') && form.get('companyName').touched">
+      <h5  class="alert alert-danger">
+          Invalid Company name
+      </h5>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">Date Of Birth</label>
+      <div  class="col-md-10 row">
+        <div  class="col-md-2">
+          <!-- [disabled]="selectedMonth" -->
+          <select class="form-control input-sm " 
+           formControlName="day" >
+            <option selected disabled value="" >Day</option>
+            <option *ngFor="let item of daysArray"  value="{{item}}" >{{item}}</option>
+          </select>
+          <div  *ngIf="form.get('day').hasError('required')">
+            <h5  class="alert alert-danger">
+                Day required!
+            </h5>
+          </div>
+        </div>
+        <div  class="col-md-2">
+          <!-- [disabled]="selectionYear"   -->
+          <select class="form-control input-sm "  formControlName="month" (change)="selectedMonthFun($event)" >
+            <option disabled selected value="">Month</option>
+            <option *ngFor="let item of monthsArray" value="{{item}}" >{{item}}</option>
+          </select>
+          <div  *ngIf="form.get('month').hasError('required')">
+            <h5  class="alert alert-danger">
+                Month required!
+            </h5>
+          </div>
+        </div>
+        <div  class="col-md-2">
+          <select class="form-control input-sm "  formControlName="year" (change)="selectedYearFun($event)">
+            <option disabled selected value="">Year</option>
+            <option *ngFor="let item of yearsArray" value="{{item}}" >{{item}}</option>
+          </select>
+          <div  *ngIf="form.get('year').hasError('required')">
+            <h5  class="alert alert-danger">
+                Year required!
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Gender</label>
+      <div class="col-md-10">
+        <label class="radio-inline">
+          <input type="radio" id="radio1"  formControlName="gender" (change)="selectGender($event)" 
+          [checked]="isChecked('male')"
+          value="male">Male
+        </label>
+        <label class="radio-inline">
+          <input type="radio" id="radio2"  formControlName="gender" (change)="selectGender($event)" 
+          [checked]="isChecked('female')"
+          value="female">Female
+        </label>
+        <label class="radio-inline">
+          <input type="radio" id="radio3"  formControlName="gender" (change)="selectGender($event)"
+          [checked]="isChecked('other')"
+          value="other">Other
+        </label>
+      </div>
+      <div  *ngIf="form.get('gender').hasError('required') && form.get('gender').touched">
+        <h5  class="alert alert-danger">
+            Gender required!
+        </h5>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label">Email Address</label>
+      <div  class="col-md-10">
+        <input type="text" class="form-control input-sm"
+        formControlName="email"
+        placeholder="Email Address">
+      </div>
+      <div  *ngIf="form.get('email').hasError('required') && form.get('email').touched">
+        <h5  class="alert alert-danger">
+            Email required!
+        </h5>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-md-2 control-label ">Password</label>
+      <div  class="col-md-10">
+        <input  type="password" class="form-control input-sm" 
+        formControlName="password"
+        placeholder="Password">
+      </div>
+      <div  *ngIf="form.get('password').hasError('required') && form.get('password').touched">
+        <h5  class="alert alert-danger">
+            Password required!
+        </h5>
+      </div>
+      
+      <div  *ngIf="form.get('password').hasError('minlength') && form.get('password').touched">
+        <h5  class="alert alert-danger">
+          Password Must Contain atleast 8 Chars
+        </h5>
+      </div>
+      <div  *ngIf="form.get('password').hasError('maxlength') && form.get('password').touched">
+        <h5  class="alert alert-danger">
+          Password Must Contain lessthan 12 Chars
+        </h5>
+      </div>
+    </div>
+    <div class="form-group ">
+      <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Register</button>
+        <button type="reset" class="btn btn-default">Reset</button>
+      </div>
+    </div>
+  </form>
+</div>

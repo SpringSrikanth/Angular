@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <button routerLink="create-user">Create User</button>
+    </div>
+    <div class="row" style="margin: 15px;padding: 10px;width: 600px; border: solid 2px gray ; border-radius: 6px;" *ngFor="let user of users">
+        <div class="col-md-3">
+            <img [src]="user?.avatar">
+        </div>
+        <div class="col-md-4">
+           <h4 routerLink="user-info/{{user.id}}">{{user.first_name}}  {{user.last_name}}</h4>
+           <p>{{user.email}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <h5 class="{{selectedPage ===item ? 'selected_page':'non_selected_page'}}" style="color: white; padding: 10px;margin: 5px;" *ngFor="let item of totalPages" (click)="getUsersByPage(item)">{{item}}</h5>
+    </div>
+</div>

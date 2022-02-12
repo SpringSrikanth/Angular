@@ -1,0 +1,11 @@
+<div>
+  <h1>{{title | lowercase}} !</h1>
+  <div>
+    <input type="text" [(ngModel)]="name" placeholder=" Enter Your Name "> <br>
+    <button type="button" (click)="submit()">Submit</button>
+  </div>
+  <div>
+    <h3 style="color:blue;font-weight:bold;font-style: italic;" *ngIf="name">Hey {{name}} !!!</h3>
+    <h4 style="color:blue;font-weight:bold;font-style: italic;" *ngIf="name">{{greetMsg}}</h4>
+  </div>
+</div>

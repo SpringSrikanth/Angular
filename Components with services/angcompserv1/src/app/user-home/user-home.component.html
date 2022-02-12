@@ -1,0 +1,14 @@
+<div class="row" style="margin:100px">
+    <h1 class="text-left" style="margin-bottom: 40px;margin-left: 20px;">Users Home</h1>
+    <div class="row">
+        <app-user-header [data]="users"></app-user-header>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <app-users-list (selectedUserInfo)="selectedUser($event)" [selectedUser]="userDetails" [usersData] = "users" ></app-users-list>
+        </div>
+        <div class="col-md-8">
+            <app-user-info  [user]="userDetails"></app-user-info>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row" style="margin:100px">
+    <h1 class="text-left" style="margin-bottom: 40px;margin-left: 20px;">Users Home</h1>
+    <div class="row">
+        <app-user-header [data]="users"></app-user-header>
+    </div>
+    <div class="row">
+        <div class="col-md-4 ">
+            <app-users-list (selectedUserInfo)="selectedUser($event)" [selectedUser]="userDetails" [usersData] = "users" ></app-users-list>
+        </div>
+        <div class="col-md-8  row">
+            <app-user-info style="margin-bottom: 5px"  [user]="userDetails"></app-user-info>
+            <app-user-posts [userId]="userDetails?.id"></app-user-posts >
+            <app-user-albums [userId]="userDetails?.id"></app-user-albums >
+        </div>
+    </div>
+</div>

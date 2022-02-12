@@ -1,0 +1,14 @@
+<div class="container">
+    <form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="row" style="margin-top: 10px;">
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter Name"> 
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <input type="text" class="form-control" formControlName="job" placeholder="Enter Job">
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <button class="btn btn-primary" type="submit" [disabled]="!this.form.valid">Submit</button>
+            <button class="btn btn-primary" style="margin-left: 5px;" (click)="form.reset()">Reset</button>
+        </div>
+    </form>
+</div>

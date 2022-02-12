@@ -1,0 +1,8 @@
+<div class="main_div" *ngIf="this.posts">
+    <h3>User Posts::</h3>
+    <div style="border-radius: 8px;border: solid gray 1px; margin: 2px; margin-bottom: 5px; padding: 10px" *ngFor="let post of posts">
+        <div >{{post?.title}}</div>
+        <div >{{post?.body}}</div>
+    </div>
+</div>
+

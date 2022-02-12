@@ -1,0 +1,17 @@
+<div>
+  <h1>Calculator</h1>
+  <div>
+    Enter Value 1: <input placeholder="Enter value 1" [(ngModel)]="value1"><br> <br> 
+    Enter Value 2:<input placeholder="Enter value 2" [(ngModel)]="value2"><br><br> 
+    <button type="button" (click)="addNumbers();">ADD</button> &nbsp; &nbsp;
+    <button type="button" (click)="mulNumbers()">MUL</button> &nbsp; &nbsp;
+    <button type="button" (click)="divNumbers()">DIV</button> &nbsp; &nbsp;
+    <button type="button" (click)="subNumbers()">SUB</button> &nbsp; &nbsp;
+    <button type="button" (click)="persentNumbers()">%</button> &nbsp; &nbsp;
+    <button type="button" (click)="resetNumbers()">RESET</button> &nbsp; &nbsp;
+
+  </div>
+  <div>
+    <h1>Result :: {{result}}</h1>
+  </div>
+</div>

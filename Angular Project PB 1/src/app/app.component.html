@@ -1,0 +1,10 @@
+<div>
+  <h1>Users</h1>
+  <ul>
+    <li *ngFor="let user of users;index as i">{{user}}-{{i}}</li>
+  </ul>
+  <h1>Books</h1>
+  <ol>
+    <li *ngFor="let book of books;index as in">{{book.name}}-{{book.author}}</li>
+  </ol>
+</div>

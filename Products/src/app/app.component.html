@@ -1,0 +1,22 @@
+<div>
+  <h1>{{title | uppercase}}</h1>
+  <div style="margin-left:20px">
+    <h2> Add Product</h2>
+    <input style="margin-bottom:10px" [(ngModel)]="p_id" placeholder="id"/> <br>
+    <input style="margin-bottom:10px" [(ngModel)]="p_name" placeholder="name"/> <br>
+    <input style="margin-bottom:10px" [(ngModel)]="p_quantity" placeholder="quantity"/> <br>
+    <input style="margin-bottom:10px" [(ngModel)]="p_amount" placeholder="total"/> <br>
+    <button style="margin-right: 10px;margin-bottom:20px" (click)="addProduct()">Add</button> 
+    <button style="margin-bottom:20px" (click)="reset()">Reset</button>
+  </div>
+  <div style="display: flex;" *ngFor="let product of products">
+    <div style="border: solid 1px lightgray;padding: 10px;">{{product.id}}</div>
+    <div style="border: solid 1px lightgray;padding: 10px;">{{product.name}}</div>
+    <div style="border: solid 1px lightgray;padding: 10px;">{{product.quantity}}</div>
+    <div style="border: solid 1px lightgray;padding: 10px;">{{product.amount}}</div>
+    <div style="border: solid 1px lightgray;padding: 10px;">{{product.total}}</div>
+  </div>
+  <div style="margin-top: 20px;font-weight: 400;" *ngIf="products && products.length >0">
+    Total Amount-{{total | currency:'INR':'symbol-narrow'}}
+  </div>
+</div>

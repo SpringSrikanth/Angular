@@ -1,0 +1,18 @@
+<div style="margin: 2px; padding: 10px;padding-bottom: 25px;padding-left: 20px; border-radius: 8px; border: solid gray 1px" *ngIf="user">
+    <h3>User Information::</h3>
+    <div style="margin-top: 5px;">
+        Name: {{user.name}}
+    </div>
+    <div style="margin-top: 5px;">
+        Email: {{user.email}}
+    </div>
+    <div style="margin-top: 5px;">
+        UserName: {{user.username}}
+    </div>
+    <div style="margin-top: 5px;">
+        phone: {{user.phone}}
+    </div>
+    <div style="margin-top: 5px;">
+        For more :: <a href="{{user.website}}">{{user.website}}</a>
+    </div>
+</div>

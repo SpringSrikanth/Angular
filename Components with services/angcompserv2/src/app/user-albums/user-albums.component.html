@@ -1,0 +1,7 @@
+<div class="main_div" *ngIf="this.albums">
+    <h3>User Albums::</h3>
+    <div style="border-radius: 8px;border: solid gray 1px; margin: 2px; margin-bottom: 5px; padding: 10px" *ngFor="let album of albums">
+        <div >{{album?.title}}</div>
+    </div>
+</div>
+

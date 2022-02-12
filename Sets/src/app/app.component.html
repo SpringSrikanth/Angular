@@ -1,0 +1,15 @@
+<div>
+  Angular Project
+  Add users
+  <input placeholder="Add User" [(ngModel)]="user" > <button (click)="addUser()">Add User</button>
+  <div *ngIf="users.size===0"><!-- Ngif is a structural directive using ngIf for checking boolean conditions -->
+    The set contains no entries.
+  </div>
+  <div *ngIf="users.size!==0">
+    <div *ngFor="let user of users">{{user}} <span (click)="remove(user)" >X</span></div> <!-- Ng for using for iterating values from array / set/ map/object-->
+  </div>
+
+  <br>
+  <br>
+  <strong> Size of Set {{users.size}} </strong>
+</div>
